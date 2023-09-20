@@ -1,25 +1,20 @@
-const projectSchema = {
+const cashFundSchema = {
   version: 0,
   type: 'object',
   primaryKey: 'id',
   properties: {
     id: {
       type: 'string',
-      primaryKey: true,
-      autoIncrement: true,
       maxLength: 100, // <- the primary key must have set maxLength
     },
-    name: {
+    cashfund: {
       type: 'string',
     },
-    location: {
-      type: 'string',
-    },
-    status: {
+    date: {
       type: 'string',
     },
   },
-  required: ['name', 'location', 'status'],
+  required: ['id', 'cashfund', 'date'],
 };
 
 const employeeSchema = {
@@ -106,4 +101,4 @@ const weeklyLogSchema = {
   indexes: ['weekNumber', 'employeeId'],
 };
 
-export { projectSchema, employeeSchema, weeklyLogSchema };
+export { cashFundSchema, employeeSchema, weeklyLogSchema };

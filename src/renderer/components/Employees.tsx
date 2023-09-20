@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
 import { Button, Form } from 'antd';
 import EmployeeModal from './Employees/Modal';
@@ -68,6 +69,7 @@ function Employees() {
           getEmployees();
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Error modifying employee:', error);
       }
     } else {
@@ -90,11 +92,13 @@ function Employees() {
           getEmployees();
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Error saving employee:', error);
       }
     }
   };
   const onFinishFailed = (errorInfo: any) => {
+    // eslint-disable-next-line no-console
     console.log('Failed:', errorInfo);
   };
   useEffect(() => {

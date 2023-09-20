@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
-import { Button, Col, Form, Input, Modal, Row } from 'antd';
+import { Button, Col, Form, InputNumber, Modal, Row } from 'antd';
 
 type FieldType = {
-  name: string;
-  location: string;
-  status: string;
+  cashfund: string;
 };
 
 const ProjectModal = ({
@@ -44,25 +42,11 @@ const ProjectModal = ({
         autoComplete="off"
       >
         <Form.Item<FieldType>
-          label="Project Name"
-          name="name"
-          rules={[{ required: true, message: 'Please input your project name!' }]}
+          label="Cash fund"
+          name="cashfund"
+          rules={[{ required: true, message: 'Please input cash fund!' }]}
         >
-          <Input />
-        </Form.Item>
-        <Form.Item<FieldType>
-          label="Location"
-          name="location"
-          rules={[{ required: true, message: 'Please input your location!' }]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item<FieldType>
-          label="Status"
-          name="status"
-          rules={[{ required: true, message: 'Please input your status!' }]}
-        >
-          <Input />
+          <InputNumber style={{ width: '100%' }} maxLength={11} />
         </Form.Item>
 
         <Row justify="space-between">

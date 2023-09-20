@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import { Button, Popconfirm, Space, Table, message } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
@@ -12,7 +13,7 @@ interface DataType {
 
 const ProjectTable = ({ projects, handleDeleteResult, editProject }): any => {
   const doConfirm = async (id: number) => {
-    const query = collections.projects.find({
+    const query = collections.cashfund.find({
       selector: {
         id: {
           $eq: id.toString(),
@@ -37,22 +38,18 @@ const ProjectTable = ({ projects, handleDeleteResult, editProject }): any => {
 
   const columns: ColumnsType<DataType> = [
     {
-      title: 'Project Name',
-      dataIndex: 'name',
+      title: 'Cash Fund',
+      dataIndex: 'cashfund',
       key: 'id',
     },
     {
-      title: 'Location',
-      dataIndex: 'location',
-    },
-    {
-      title: 'Status',
-      dataIndex: 'status',
+      title: 'Date',
+      dataIndex: 'date',
     },
 
     {
       title: 'Action',
-      key: 'project.id',
+      key: 'cashFund.id',
       render: (_, record) => (
         <Space size="middle">
           <Button
