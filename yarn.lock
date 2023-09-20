@@ -2043,7 +2043,7 @@
   resolved "https://registry.yarnpkg.com/@mui/core-downloads-tracker/-/core-downloads-tracker-5.14.10.tgz#32a8581be98344bbda5ed31fc7b41788bd2e3bc5"
   integrity sha512-kPHu/NhZq1k+vSZR5wq3AyUfD4bnfWAeuKpps0+8PS7ZHQ2Lyv1cXJh+PlFdCIOa0PK98rk3JPwMzS8BMhdHwQ==
 
-"@mui/material@^5.14.7":
+"@mui/material@^5.14.10":
   version "5.14.10"
   resolved "https://registry.yarnpkg.com/@mui/material/-/material-5.14.10.tgz#b8c6ba17c25c0df54053cb0f1bb35083bc91dace"
   integrity sha512-ejFMppnO+lzBXpzju+N4SSz0Mhmi5sihXUGcr5FxpgB6bfUP0Lpe32O0Sw/3s8xlmLEvG1fqVT0rRyAVMlCA+A==
