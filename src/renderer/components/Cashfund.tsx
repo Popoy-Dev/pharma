@@ -3,6 +3,7 @@ import { Button, Form } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
 
+import moment from 'moment';
 import ProjectModal from './CashFund/Modal';
 import collections from '../database/db';
 import ProjectTable from './CashFund/Table';
@@ -15,21 +16,17 @@ function Project() {
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [projects, setProjects] = useState<any>([]);
   const [deleteResult, setDeleteResult] = useState('');
+  const [cashToday, setCashToday] = useState('');
   const [modalText, setModalText] = useState('Content of the modal');
   // const [isProjectEditModal, setIsProjectEditModalVisible] = useState(false);
   const [editValue, setEditValue] = useState<any>({});
   console.log('projects', projects);
-  const options: any = {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric',
-    hour12: true,
-  };
-  const formattedDate: any = new Intl.DateTimeFormat('en-US', options).format(new Date());
+
+  // Create a Moment.js object for the current date
+  const currentDate = moment();
+
+  // Format the current date in the desired format
+  const formattedDate = currentDate.format('YYYY-MM-DD hh:mm:ss A');
 
   const showModal = () => {
     setOpen(true);
@@ -113,8 +110,6 @@ function Project() {
   useEffect(() => {
     // eslint-disable-next-line no-console
     console.log('id', id);
-
-    console.log('new date', formattedDate);
   }, []);
 
   const handleDeleteResult = (data) => {
@@ -126,13 +121,37 @@ function Project() {
     setEditValue(list);
   };
 
+  useEffect(() => {
+    // Assuming you have a 'projects' array and want to check the date of the first project
+    // eslint-disable-next-line no-shadow
+    const cashToday = moment(projects && projects[0]?.date);
+
+    // Create a Moment.js object for the current date
+    const currentDateToday = moment();
+    console.log('currentDateToday', currentDateToday);
+    console.log('cashToday', cashToday);
+    // Check if the date of the first project matches the current date (ignoring time)
+    if (currentDateToday.isSame(cashToday, 'day')) {
+      console.log('hello');
+      setCashToday(projects[0]?.cashfund);
+    } else {
+      console.log('hi');
+
+      setCashToday('');
+    }
+  });
   return (
     <div>
-      <h1>Cash Fund</h1>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <h1>Cash Fund</h1>
+        <h1 style={{ fontSize: '36px' }}>₱{!cashToday ? ' No Cash Fund for today!' : cashToday}</h1>
+      </div>
       <div style={{ textAlign: 'right' }}>
-        <Button type="primary" onClick={showModal} style={{ marginBottom: '12px' }}>
-          Create cash fund
-        </Button>
+        {!cashToday && (
+          <Button type="primary" onClick={showModal} style={{ marginBottom: '12px' }}>
+            Create cash fund
+          </Button>
+        )}
 
         <ProjectModal
           title="Cash Fund"

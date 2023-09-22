@@ -12,7 +12,7 @@ const App: React.FC = () => {
   const { colorBgContainer } = theme.useToken().token;
 
   const sideBarItems = [
-    { icon: UserOutlined, label: 'Cash Fund' },
+    { icon: UserOutlined, label: 'Cashfund' },
     { icon: UserOutlined, label: 'Employees' },
     { icon: VideoCameraOutlined, label: 'Attendance' },
   ];
