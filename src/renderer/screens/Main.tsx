@@ -4,6 +4,7 @@ import { Layout, Menu, theme } from 'antd';
 import Cashfund from '../components/Cashfund';
 import Employees from '../components/Employees';
 import Attendance from '../components/Attendance';
+import Products from '../components/Products';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -13,6 +14,7 @@ const App: React.FC = () => {
 
   const sideBarItems = [
     { icon: UserOutlined, label: 'Cashfund' },
+    { icon: UserOutlined, label: 'Products' },
     { icon: UserOutlined, label: 'Employees' },
     { icon: VideoCameraOutlined, label: 'Attendance' },
   ];
@@ -20,6 +22,7 @@ const App: React.FC = () => {
   const handleMenuClick = (item) => {
     const components = {
       Cashfund: <Cashfund />,
+      Products: <Products />,
       Employees: <Employees />,
       Attendance: <Attendance />,
     };
