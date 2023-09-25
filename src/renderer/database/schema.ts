@@ -17,6 +17,28 @@ const cashFundSchema = {
   required: ['id', 'cashfund', 'date'],
 };
 
+const productSchema = {
+  version: 0,
+  type: 'object',
+  primaryKey: 'id',
+  properties: {
+    id: {
+      type: 'string',
+      maxLength: 100, // <- the primary key must have set maxLength
+    },
+    product_name: {
+      type: 'string',
+    },
+    category: {
+      type: 'string',
+    },
+    indication: {
+      type: 'string',
+    },
+  },
+  required: ['id', 'cashfund', 'date'],
+};
+
 const employeeSchema = {
   version: 0,
   primaryKey: 'id',
@@ -101,4 +123,4 @@ const weeklyLogSchema = {
   indexes: ['weekNumber', 'employeeId'],
 };
 
-export { cashFundSchema, employeeSchema, weeklyLogSchema };
+export { cashFundSchema, employeeSchema, weeklyLogSchema, productSchema };
