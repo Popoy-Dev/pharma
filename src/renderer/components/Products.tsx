@@ -66,6 +66,9 @@ function Products() {
             product_name: values.product_name,
             category: values.category,
             indication: values.indication,
+            manufacture_price: values.manufacture_price,
+            selling_price: values.selling_price,
+            isVat: values.isVat,
           });
           setOpen(false);
           getProducts();
@@ -81,6 +84,9 @@ function Products() {
           product_name: values.product_name,
           category: values.category,
           indication: values.indication,
+          manufacture_price: values.manufacture_price,
+          selling_price: values.selling_price,
+          isVat: values.isVat,
         });
         if (result.isInstanceOfRxDocument) {
           setOpen(false);

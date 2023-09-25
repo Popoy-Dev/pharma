@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
-import { Button, Col, Form, Input, Modal, Row } from 'antd';
+import { Button, Col, Form, Input, InputNumber, Modal, Row, Select } from 'antd';
 
 type FieldType = {
   product_name: string;
   category: string;
   indication: string;
+  manufacture_price: number;
+  selling_price: number;
+  isVat: boolean;
 };
 
 const ProductModal = ({
@@ -64,7 +67,26 @@ const ProductModal = ({
         >
           <Input />
         </Form.Item>
-
+        <Form.Item<FieldType>
+          label="Manufacture Price"
+          name="manufacture_price"
+          rules={[{ required: true, message: 'Please input manufacture number!' }]}
+        >
+          <InputNumber style={{ width: '100%' }} maxLength={11} />
+        </Form.Item>
+        <Form.Item<FieldType>
+          label="Selling Price"
+          name="selling_price"
+          rules={[{ required: true, message: 'Please input selling price!' }]}
+        >
+          <InputNumber style={{ width: '100%' }} maxLength={11} />
+        </Form.Item>
+        <Form.Item label="Select" name="isVat">
+          <Select>
+            <Select.Option value="Vat">Vat</Select.Option>
+            <Select.Option value="Non-Vat">Non-Vat</Select.Option>
+          </Select>
+        </Form.Item>
         <Row justify="space-between">
           <Col>
             <Button type="default" onClick={onCancel}>

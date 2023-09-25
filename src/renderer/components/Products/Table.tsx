@@ -9,6 +9,9 @@ interface DataType {
   product_name: string;
   category: string;
   indication: string;
+  manufacture_price: number;
+  selling_price: number;
+  isVat: boolean;
 }
 
 const ProductTable = ({ products, handleDeleteResult, editProduct }): any => {
@@ -51,6 +54,18 @@ const ProductTable = ({ products, handleDeleteResult, editProduct }): any => {
       dataIndex: 'indication',
     },
     {
+      title: 'Manufacture price',
+      dataIndex: 'manufacture_price',
+    },
+    {
+      title: 'Selling price',
+      dataIndex: 'selling_price',
+    },
+    {
+      title: 'isVat',
+      dataIndex: 'isVat',
+    },
+    {
       title: 'Action',
       key: 'product.id',
       render: (_, record) => (
@@ -60,11 +75,11 @@ const ProductTable = ({ products, handleDeleteResult, editProduct }): any => {
             style={{ backgroundColor: '#d9d764' }}
             onClick={() => editProduct(record)}
           >
-            Update {record.name}{' '}
+            Update
           </Button>
 
           <Popconfirm
-            title="Are you sure to delete this task?"
+            title="Are you sure to delete this product?"
             onConfirm={() => {
               doConfirm(record.id);
             }}
