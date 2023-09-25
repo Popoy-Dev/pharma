@@ -5,6 +5,7 @@ import Cashfund from '../components/Cashfund';
 import Employees from '../components/Employees';
 import Attendance from '../components/Attendance';
 import Products from '../components/Products';
+import Inventory from '../components/Inventory';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -15,6 +16,7 @@ const App: React.FC = () => {
   const sideBarItems = [
     { icon: UserOutlined, label: 'Cashfund' },
     { icon: UserOutlined, label: 'Products' },
+    { icon: UserOutlined, label: 'Inventory' },
     { icon: UserOutlined, label: 'Employees' },
     { icon: VideoCameraOutlined, label: 'Attendance' },
   ];
@@ -23,6 +25,7 @@ const App: React.FC = () => {
     const components = {
       Cashfund: <Cashfund />,
       Products: <Products />,
+      Inventory: <Inventory />,
       Employees: <Employees />,
       Attendance: <Attendance />,
     };
